@@ -1,0 +1,50 @@
+body {
+    width: 70%;
+    margin: 0 auto;
+    padding: 1rem;    
+}
+
+.all {
+    border: 2px solid black;
+    padding: 0 1rem;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.each {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.each p {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.add form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.add input {
+   margin: 5px 0;
+   border: 2px solid black;
+   padding: 5px;
+   font-size: 16px;
+}
+
+.add button,
+.each button{
+    width: 70px;
+    margin-left: auto;
+    border: 2px solid black;
+    font-size: 15px;
+    height: 30px;
+    box-shadow: 3px 3px 3px 0px gray ;
+}
