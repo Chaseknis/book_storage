@@ -46,14 +46,20 @@ form.addEventListener('submit', (e) => {
   });
 });
 
-window.addEventListener('load',()=>{
-    let replay = JSON.parse(localStorage.getItem('array'));
-    if (replay !== null) {
-        books = replay;
-    all.innerHTML = "";
-    books.map((book)=>{
-        clone(all,book);
-    })
-    }
-    
-})
+window.addEventListener('load', () => {
+  const replay = JSON.parse(localStorage.getItem('array'));
+  if (replay !== null) {
+    books = replay;
+    all.innerHTML = '';
+    books.map((book) => clone(all, book));
+
+    const remove = document.querySelectorAll('.remove');
+    remove.forEach((re) => {
+      re.addEventListener('click', () => {
+        books = books.filter((book) => book.id !== parseInt(re.dataset.id, 10));
+        localStorage.setItem('array', JSON.stringify(books));
+        re.parentNode.remove();
+      });
+    });
+  }
+});
