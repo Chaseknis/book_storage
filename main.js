@@ -45,3 +45,15 @@ form.addEventListener('submit', (e) => {
     });
   });
 });
+
+window.addEventListener('load',()=>{
+    let replay = JSON.parse(localStorage.getItem('array'));
+    if (replay !== null) {
+        books = replay;
+    all.innerHTML = "";
+    books.map((book)=>{
+        clone(all,book);
+    })
+    }
+    
+})
