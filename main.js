@@ -1,4 +1,4 @@
-const books = [];
+let books = [];
 const all = document.querySelector('.all');
 const form = document.querySelector('#form');
 const title = document.querySelector('#title');
@@ -33,4 +33,15 @@ form.addEventListener('submit', (e) => {
 
   author.value = '';
   title.value = '';
+
+  // Add codes to remove from the list
+
+  const remove = document.querySelectorAll('.remove');
+  remove.forEach((re) => {
+    re.addEventListener('click', () => {
+      books = books.filter((book) => book.id !== parseInt(re.dataset.id));
+      localStorage.setItem('array', JSON.stringify(books));
+      re.parentNode.remove();
+    });
+  });
 });
