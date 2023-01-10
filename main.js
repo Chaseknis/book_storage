@@ -39,7 +39,7 @@ form.addEventListener('submit', (e) => {
   const remove = document.querySelectorAll('.remove');
   remove.forEach((re) => {
     re.addEventListener('click', () => {
-      books = books.filter((book) => book.id !== parseInt(re.dataset.id));
+      books = books.filter((book) => book.id !== parseInt(re.dataset.id, 10));
       localStorage.setItem('array', JSON.stringify(books));
       re.parentNode.remove();
     });
