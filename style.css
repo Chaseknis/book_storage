@@ -1,12 +1,49 @@
-body {
-  width: 70%;
-  margin: 0 auto;
-  padding: 1rem;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  border: 1px solid rgb(80, 80, 80);
+  padding: 0 0.5rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav h2 {
+  font-size: 18px;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+}
+
+nav li {
+  list-style: none;
+  border-right: 1px solid rgb(80, 80, 80);
+  padding: 0.3rem;
+}
+
+nav li:last-child {
+  border: none;
+}
+
+nav li a {
+  text-align: center;
+  text-decoration: none;
+  color: rgb(80, 80, 80);
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .all {
   border: 2px solid black;
-  padding: 0 1rem;
 }
 
 section h2 {
@@ -14,10 +51,15 @@ section h2 {
   margin-bottom: 10px;
 }
 
+#top {
+  display: none;
+}
+
 .each {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 5px 0.5rem;
 }
 
 .each p {
@@ -25,26 +67,49 @@ section h2 {
   font-weight: 600;
 }
 
-.add form {
+.each:nth-child(odd) {
+  background-color: whitesmoke;
+}
+
+#add form {
   display: flex;
   flex-direction: column;
   width: 80%;
   margin: 0 auto;
 }
 
-.add input {
+#add input {
   margin: 5px 0;
   border: 2px solid black;
   padding: 5px;
   font-size: 16px;
 }
 
-.add button,
-.each button {
+.each button,
+#add button {
   width: 70px;
   margin-left: auto;
   border: 2px solid black;
   font-size: 15px;
   height: 30px;
   box-shadow: 3px 3px 3px 0 gray;
+}
+
+#contact {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  body {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  nav li {
+    padding: 0.3rem 0.6rem;
+  }
+
+  nav li a {
+    font-size: 18px;
+  }
 }

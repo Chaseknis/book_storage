@@ -83,3 +83,27 @@ window.addEventListener('load', () => {
     });
   }
 });
+
+const list = document.querySelector('#list');
+const addnew = document.querySelector('#addnew');
+const contact = document.querySelector('#contact');
+const li = document.querySelector('#top');
+const add = document.querySelector('#add');
+
+function hide(owner, other, oda) {
+  owner.style.display = 'block';
+  other.style.display = 'none';
+  oda.style.display = 'none';
+}
+
+list.addEventListener('click', () => {
+  hide(li, add, contact);
+});
+
+addnew.addEventListener('click', () => {
+  hide(add, li, contact);
+});
+
+contact.addEventListener('click', () => {
+  hide(contact, add, li);
+});
