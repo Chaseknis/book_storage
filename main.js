@@ -2,8 +2,27 @@ let books = [];
 
 const all = document.querySelector('.all');
 const form = document.querySelector('#form');
-const title = document.querySelector('#title');
-const author = document.querySelector('#author');
+const titl = document.querySelector('#title');
+const autho = document.querySelector('#author');
+
+class Ree {
+  constructor(author, title, id = Math.floor(Math.random() * 1000)) {
+    this.author = author;
+    this.title = title;
+    this.id = id;
+  }
+
+  addbook(vee) {
+    this.author = autho.value;
+    this.title = titl.value;
+    books.push(vee);
+  }
+
+  delbook(id) {
+    this.id = books.id;
+    books = books.filter((book) => book.id !== id);
+  }
+}
 
 function clone(main, array) {
   const text = `
@@ -20,27 +39,26 @@ function clone(main, array) {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  if (author.value === '' || title.value === '') {
+  if (autho.value === '' || titl.value === '') {
     return;
   }
 
-  const dat = { author: author.value, title: title.value, id: Math.floor(Math.random() * 1000) };
-
-  books.push(dat);
-
+  const trr = new Ree(autho.value, titl.value);
+  trr.addbook(trr);
   localStorage.setItem('array', JSON.stringify(books));
   all.innerHTML = '';
   books.map((map) => clone(all, map));
 
-  author.value = '';
-  title.value = '';
+  autho.value = '';
+  titl.value = '';
 
   // Add codes to remove from the list
 
   const remove = document.querySelectorAll('.remove');
   remove.forEach((re) => {
     re.addEventListener('click', () => {
-      books = books.filter((book) => book.id !== parseInt(re.dataset.id, 10));
+      const free = new Ree();
+      free.delbook(parseInt(re.dataset.id, 10));
       localStorage.setItem('array', JSON.stringify(books));
       re.parentNode.remove();
     });
@@ -57,7 +75,8 @@ window.addEventListener('load', () => {
     const remove = document.querySelectorAll('.remove');
     remove.forEach((re) => {
       re.addEventListener('click', () => {
-        books = books.filter((book) => book.id !== parseInt(re.dataset.id, 10));
+        const free = new Ree();
+        free.delbook(parseInt(re.dataset.id, 10));
         localStorage.setItem('array', JSON.stringify(books));
         re.parentNode.remove();
       });
