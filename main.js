@@ -5,20 +5,6 @@ const form = document.querySelector('#form');
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 
-class Ree {
-  constructor(author, title, id = Math.floor(Math.random()*1000)){
-      this.author = author;
-      this.title = title;
-      this.id = id;
-  }
-  addbook(vee){
-      books.push(vee)
-  }
-  delbook(id){
-     books = books.filter(book => book.id !== id)
-  }
-}
-
 function clone(main, array) {
   const text = `
     <p> "${array.title}" by ${array.author}</p>
