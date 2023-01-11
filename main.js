@@ -6,16 +6,18 @@ const titl = document.querySelector('#title');
 const autho = document.querySelector('#author');
 
 class Ree {
-  constructor(author, title, id = Math.floor(Math.random()*1000)){
-      this.author = author;
-      this.title = title;
-      this.id = id;
+  constructor(author, title, id = Math.floor(Math.random() * 1000)) {
+    this.author = author;
+    this.title = title;
+    this.id = id;
   }
-  addbook(vee){
-      books.push(vee)
+
+  addbook(vee) {
+    books.push(vee);
   }
-  delbook(id){
-     books = books.filter(book => book.id !== id)
+
+  delbook(id) {
+    books = books.filter((book) => book.id !== id);
   }
 }
 
@@ -52,7 +54,8 @@ form.addEventListener('submit', (e) => {
   const remove = document.querySelectorAll('.remove');
   remove.forEach((re) => {
     re.addEventListener('click', () => {
-      books = books.filter((book) => book.id !== parseInt(re.dataset.id, 10));
+      const free = new Ree();
+      free.delbook(parseInt(re.dataset.id, 10));
       localStorage.setItem('array', JSON.stringify(books));
       re.parentNode.remove();
     });
@@ -69,7 +72,8 @@ window.addEventListener('load', () => {
     const remove = document.querySelectorAll('.remove');
     remove.forEach((re) => {
       re.addEventListener('click', () => {
-        books = books.filter((book) => book.id !== parseInt(re.dataset.id, 10));
+        const free = new Ree();
+        free.delbook(parseInt(re.dataset.id, 10));
         localStorage.setItem('array', JSON.stringify(books));
         re.parentNode.remove();
       });
