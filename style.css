@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,900;1,100;1,300&display=swap');
+
 * {
   padding: 0;
   margin: 0;
@@ -5,18 +7,27 @@
 }
 
 body {
-  margin: 1rem 16pt;
+  font-family: 'poppins', sans-serif;
 }
 
 header {
-  border: 1px solid rgb(80, 80, 80);
-  padding: 0 0.5rem;
+  margin: 3px 0.5rem;
+  margin-bottom: 1.3rem;
 }
 
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border: 2px solid rgb(80, 80, 80);
+  padding: 0 0.5rem;
+}
+
+header h3 {
+  font-size: 13px;
+  text-align: right;
+  text-transform: capitalize;
+  margin-top: 3px;
 }
 
 nav h2 {
@@ -46,11 +57,19 @@ nav li a {
   font-weight: 600;
 }
 
-.logo{
+nav li a:hover {
+  color: rgb(80, 80, 226);
+}
+
+.logo {
   text-decoration: none;
   color: rgb(80, 80, 80);
   font-size: 13px;
   font-weight: 600;
+}
+
+main {
+  margin: 2px 0.5rem;
 }
 
 .all {
@@ -59,12 +78,11 @@ nav li a {
 
 section h2 {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 1.3rem;
 }
 
 #top {
   display: none;
-  height: 90vh;
 }
 
 .each {
@@ -84,12 +102,14 @@ section h2 {
 }
 
 #add {
-  height: 90vh;
+  width: 70%;
+  margin: 0 auto;
 }
 
 #add form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin: 0 auto;
 }
 
@@ -112,7 +132,8 @@ section h2 {
 
 #contact {
   display: none;
-  height: 90vh;
+  width: 70%;
+  margin: 0 auto;
 }
 
 .contact_container {
@@ -130,11 +151,20 @@ section h2 {
   padding-bottom: 1rem;
 }
 
-@media (min-width: 768px) {
-  body {
-    margin: 1rem 240px;
-  }
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: 0.5rem;
+}
 
+.footer_container {
+  border: 2px solid rgb(80, 80, 80);
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
   nav li {
     padding: 0.3rem 0.6rem;
   }
@@ -143,7 +173,7 @@ section h2 {
     font-size: 18px;
   }
 
-  .logo{
+  .logo {
     text-decoration: none;
     color: rgb(80, 80, 80);
     font-size: 18px;
@@ -152,8 +182,5 @@ section h2 {
 
   .contact_container {
     padding-top: 4rem;
-  }
-  .contact_container p {
-    width: 34%;
   }
 }
