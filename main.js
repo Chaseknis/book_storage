@@ -13,10 +13,13 @@ class Ree {
   }
 
   addbook(vee) {
+    this.author = autho.value;
+    this.title = titl.value;
     books.push(vee);
   }
 
   delbook(id) {
+    this.id = books.id;
     books = books.filter((book) => book.id !== id);
   }
 }
