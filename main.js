@@ -4,6 +4,7 @@ const all = document.querySelector('.all');
 const form = document.querySelector('#form');
 const titl = document.querySelector('#title');
 const autho = document.querySelector('#author');
+const time = document.querySelector('#time');
 
 class Ree {
   constructor(author, title, id = Math.floor(Math.random() * 1000)) {
@@ -36,6 +37,16 @@ function clone(main, array) {
   main.appendChild(each);
 }
 
+function date(Taker) {
+  const dee = new Date();
+  let hours = dee.getHours();
+  const ampm = hours >= 12 ? 'pm' : 'am';
+  hours %= 12;
+  const mont = ['january', 'feburary', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+  const display = `${mont[dee.getMonth()]} ${dee.getDate()}th ${dee.getFullYear()}, ${hours}:${dee.getMinutes()}${ampm}`;
+  Taker.innerText = display;
+}
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -66,6 +77,7 @@ form.addEventListener('submit', (e) => {
 });
 
 window.addEventListener('load', () => {
+  date(time);
   const replay = JSON.parse(localStorage.getItem('array'));
   if (replay !== null) {
     books = replay;
@@ -82,4 +94,29 @@ window.addEventListener('load', () => {
       });
     });
   }
+});
+
+const list = document.querySelector('#list');
+const addnew = document.querySelector('#addnew');
+const contact = document.querySelector('#contact');
+const li = document.querySelector('#top');
+const add = document.querySelector('#add');
+const contac = document.querySelector('#contac');
+
+function hide(owner, other, oda) {
+  owner.style.display = 'block';
+  other.style.display = 'none';
+  oda.style.display = 'none';
+}
+
+list.addEventListener('click', () => {
+  hide(li, add, contact);
+});
+
+addnew.addEventListener('click', () => {
+  hide(add, li, contact);
+});
+
+contac.addEventListener('click', () => {
+  hide(contact, add, li);
 });
