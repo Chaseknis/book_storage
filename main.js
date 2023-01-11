@@ -2,8 +2,8 @@ let books = [];
 
 const all = document.querySelector('.all');
 const form = document.querySelector('#form');
-const title = document.querySelector('#title');
-const author = document.querySelector('#author');
+const titl = document.querySelector('#title');
+const autho = document.querySelector('#author');
 
 class Ree {
   constructor(author, title, id = Math.floor(Math.random()*1000)){
@@ -34,20 +34,18 @@ function clone(main, array) {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  if (author.value === '' || title.value === '') {
+  if (autho.value === '' || titl.value === '') {
     return;
   }
 
-  const dat = { author: author.value, title: title.value, id: Math.floor(Math.random() * 1000) };
-
-  books.push(dat);
-
+  const trr = new Ree(autho.value, titl.value);
+  trr.addbook(trr);
   localStorage.setItem('array', JSON.stringify(books));
   all.innerHTML = '';
   books.map((map) => clone(all, map));
 
-  author.value = '';
-  title.value = '';
+  autho.value = '';
+  titl.value = '';
 
   // Add codes to remove from the list
 
