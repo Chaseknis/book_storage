@@ -89,6 +89,7 @@ const addnew = document.querySelector('#addnew');
 const contact = document.querySelector('#contact');
 const li = document.querySelector('#top');
 const add = document.querySelector('#add');
+const contac = document.querySelector('#contac');
 
 function hide(owner, other, oda) {
   owner.style.display = 'block';
@@ -104,6 +105,6 @@ addnew.addEventListener('click', () => {
   hide(add, li, contact);
 });
 
-contact.addEventListener('click', () => {
+contac.addEventListener('click', () => {
   hide(contact, add, li);
 });
